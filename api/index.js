@@ -13,7 +13,7 @@ app.get('/api/item/:slug', (req, res) => {
   res.end(`Item: ${slug}`);
 });
 
-pp.get('/api/item/:slug', (req, res) => {
+pp.get('/api/audio/:slug', (req, res) => {
   const { slug } = req.params;
   const audios = [
     {
@@ -26,7 +26,7 @@ pp.get('/api/item/:slug', (req, res) => {
     }
   ]
 
-  const index = Math.random() > 0.5 ? 0 : 1;
+  const index = Number(slug) === 0 ? 0 : 1;
   const fps = 30;
   const { duration, src } = audios[index];
 
