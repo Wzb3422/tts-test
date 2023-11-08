@@ -13,7 +13,7 @@ app.get('/api/item/:slug', (req, res) => {
   res.end(`Item: ${slug}`);
 });
 
-pp.get('/api/audio/:slug', (req, res) => {
+app.get('/api/audio/:slug', (req, res) => {
   const { slug } = req.params;
   const audios = [
     {
