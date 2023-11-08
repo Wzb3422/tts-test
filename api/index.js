@@ -13,4 +13,27 @@ app.get('/api/item/:slug', (req, res) => {
   res.end(`Item: ${slug}`);
 });
 
+pp.get('/api/item/:slug', (req, res) => {
+  const { slug } = req.params;
+  const audios = [
+    {
+      src: 'https://tts-test-phi.vercel.app/guiltymangofree.mp3',
+      duration: 2,
+    },
+    {
+      src: 'https://tts-test-phi.vercel.app/hihowareyoudoingtoday.mp3',
+      duration: 4,
+    }
+  ]
+
+  const index = Math.random() > 0.5 ? 0 : 1;
+  const fps = 30;
+  const { duration, src } = audios[index];
+
+  res.json({
+    durationInFrames: duration * fps,
+    src,
+  })
+});
+
 module.exports = app;
